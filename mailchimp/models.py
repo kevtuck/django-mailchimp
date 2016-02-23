@@ -1,8 +1,13 @@
 import json
 
+-from django.contrib.contenttypes.fields import GenericForeignKey
+ +try:
+ +    from django.contrib.contenttypes.fields import GenericForeignKey
+ +except ImportError:
+ +    from django.contrib.contenttypes.generic import GenericForeignKey
+
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
