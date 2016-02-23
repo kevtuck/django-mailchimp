@@ -81,7 +81,7 @@ class Queue(models.Model):
     type_opts = models.TextField()
     content_type = models.ForeignKey(ContentType, null=True, blank=True)
     object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey('content_type', 'object_id')
     extra_info = models.TextField(null=True)
     locked = models.BooleanField(default=False)
 
@@ -201,7 +201,7 @@ class Campaign(models.Model):
     name = models.CharField(max_length=255)
     content_type = models.ForeignKey(ContentType, null=True, blank=True)
     object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey('content_type', 'object_id')
     extra_info = models.TextField(null=True)
 
     objects = CampaignManager()
